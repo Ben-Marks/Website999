@@ -1,5 +1,5 @@
 # Site settings
-baseURL = "http://example.org/"
+baseURL = "https://benmarks.netlify.app/"
 languageCode = "en-us"
 title = "Ben"
 theme = "forty"
