@@ -1,0 +1,18 @@
+---
+categories:
+- ""
+- ""
+date: "2017-10-31T22:26:13-05:00"
+description:
+draft: false
+image:
+keywords: ""
+slug: work
+title: Cat pictures
+---
+
+**Here are some prictures of my cat Luna!**
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna1.jpg", error = FALSE)
+```
