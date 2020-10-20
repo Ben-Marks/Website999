@@ -7,12 +7,30 @@ description:
 draft: false
 image:
 keywords: ""
-slug: work
-title: Cat Videos
+slug: cat
+title: Cat pictures
 ---
 
-**Here are some videos of my cat Luna!**
+**Here are some prictures of my cat Luna!**
 
 ```{r, echo=FALSE, out.width="90%"}
-knitr::include_graphics("/img/Video.MOV", error = FALSE)
+knitr::include_graphics("/img/luna1.jpg", error = FALSE)
 ```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna2.jpg", error = FALSE)
+```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna3.jpg", error = FALSE)
+```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna1.gif", error = FALSE)
+```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna2.gif", error = FALSE)
+```
+
+

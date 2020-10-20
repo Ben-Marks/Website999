@@ -28,3 +28,9 @@ knitr::include_graphics("/img/luna3.jpg", error = FALSE)
 ```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/luna1.gif", error = FALSE)
 ```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna2.gif", error = FALSE)
+```
+
+
