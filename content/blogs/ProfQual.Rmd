@@ -8,7 +8,7 @@ draft: false
 image:
 keywords: ""
 slug: pq
-title: Professional Qualifactions
+title: ProfessionalQualifactions
 ---
 
 **CFA LEVEL 1**
