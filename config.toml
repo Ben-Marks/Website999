@@ -192,7 +192,7 @@ disqusShortname = ""
 
     [[params.footer.social]]
       icon = "fa-facebook"
-      url= "www.https://www.facebook.com/ben.marks.5074/"
+      url= "https://www.facebook.com/ben.marks.5074/"
       label = "Facebook"
 
     [[params.footer.social]]
