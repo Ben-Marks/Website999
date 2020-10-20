@@ -37,8 +37,8 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Forty"
-    subtitle = "By HTML5 Up"
+    title = "Ben"
+    subtitle = "Marks"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Ben's Website"
-    subtitle = "This is my cool website"
+    subtitle = "MFA Student at London Business School"
     buttonText = "Get Started"
 
 
@@ -92,8 +92,8 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "title"
-      subtitle = "Ipsum Dolor Sit Amet"
+      title = "About me"
+      subtitle = ""
       image = "pic01.jpg"
       url = "blogs/aliquam"
 
