@@ -139,10 +139,8 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "Ben Marks"
-    subtitle = ""
-    Welcome to my website. I created this website as part of my Data Analytics course at London Business School. I hope that you enjoy finding a bit out about me!"""
-    buttonText = "Get Started"
-    url = "https://benmarks.netlify.app/"
+    subtitle = "Welcome to my website. I created this website as part of my Data Analytics course at London Business School. I hope that you enjoy finding a bit out about me!"    buttonText = "Get Started"
+    url = "blogs/aboutme"
 
 
    # Contact section
