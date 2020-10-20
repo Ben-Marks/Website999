@@ -5,5 +5,3 @@ image: pic02.jpg
 slug: cv
 title: Lifestyle
 ---
-
-My blogs about technology and lifestyle.
