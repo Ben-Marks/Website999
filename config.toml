@@ -99,7 +99,7 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "CV"
-      subtitle = "Feugiat Amet Tempus"
+      subtitle = ""
       image = "pic02.jpg"
       url = "blogs/cv"
 
