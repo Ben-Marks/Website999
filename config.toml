@@ -138,10 +138,12 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Ben Marks"
-    subtitle = "Welcome to my website. I created this website as part of my Data Analytics course at London Business School. I hope that you enjoy finding a bit out about me!"    buttonText = "Get Started"
+    title = "Welcome to my website"
+    subtitle = """Thank you for visiting my portfolio website. 
+    I created this webiste as part of my my Data Analytics for Finance course at London Business School.
+    I hope you enjoy finding a bit out about me!"""
+    buttonText = "Get Started"
     url = "blogs/aboutme"
-
 
    # Contact section
   [params.contact]
