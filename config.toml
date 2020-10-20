@@ -101,7 +101,7 @@ disqusShortname = ""
       title = "CV"
       subtitle = "Feugiat Amet Tempus"
       image = "pic02.jpg"
-      url = "CV/cv"
+      url = "cv/cv"
 
     [[params.tiles.showcase]]
       title = "Magna"
