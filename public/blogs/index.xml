@@ -37,7 +37,7 @@ GCES
       <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
       
       <guid>/blogs/work/</guid>
-      <description></description>
+      <description># Make sure you use vroom() as it is significantly faster than read.csv()library(patchwork)library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packageslibrary(mosaic)library(ggthemes)library(lubridate)library(fivethirtyeight)library(here)library(skimr)library(janitor)library(vroom)library(tidyquant)library(rvest) # scrape websiteslibrary(purrr) library(lubridate) #to handle datesdf1 &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))df2 &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.csv&amp;quot;))## Warning: 333 parsing failures.## row col expected actual file## 3241 world_region 1/0/T/F/TRUE/FALSE EU &amp;#39;C:/Users/benma/OneDrive/Documents/LBS/Data for Finance/Website999/data/zip_code_database.csv&amp;#39;## 3244 world_region 1/0/T/F/TRUE/FALSE EU &amp;#39;C:/Users/benma/OneDrive/Documents/LBS/Data for Finance/Website999/data/zip_code_database.</description>
     </item>
     
     <item>

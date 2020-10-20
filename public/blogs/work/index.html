@@ -83,7 +83,159 @@
                             
 
 
+<pre class="r"><code># Make sure you use vroom() as it is significantly faster than read.csv()
+library(patchwork)
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest)    # scrape websites
+library(purrr)  
+library(lubridate) #to handle dates
 
+df1 &lt;- read_csv(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
+df2 &lt;- read_csv(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))</code></pre>
+<pre><code>## Warning: 333 parsing failures.
+##  row          col           expected actual                                                                                           file
+## 3241 world_region 1/0/T/F/TRUE/FALSE     EU &#39;C:/Users/benma/OneDrive/Documents/LBS/Data for Finance/Website999/data/zip_code_database.csv&#39;
+## 3244 world_region 1/0/T/F/TRUE/FALSE     EU &#39;C:/Users/benma/OneDrive/Documents/LBS/Data for Finance/Website999/data/zip_code_database.csv&#39;
+## 3245 world_region 1/0/T/F/TRUE/FALSE     EU &#39;C:/Users/benma/OneDrive/Documents/LBS/Data for Finance/Website999/data/zip_code_database.csv&#39;
+## 3246 world_region 1/0/T/F/TRUE/FALSE     EU &#39;C:/Users/benma/OneDrive/Documents/LBS/Data for Finance/Website999/data/zip_code_database.csv&#39;
+## 3247 world_region 1/0/T/F/TRUE/FALSE     EU &#39;C:/Users/benma/OneDrive/Documents/LBS/Data for Finance/Website999/data/zip_code_database.csv&#39;
+## .... ............ .................. ...... ..............................................................................................
+## See problems(...) for more details.</code></pre>
+<pre class="r"><code>df1 &lt;- df1 %&gt;% mutate(zip = as.character(zip)) %&gt;% left_join(df2)
+
+
+p1 &lt;- df1 %&gt;%filter(cand_nm ==&quot;Trump, Donald J.&quot;)%&gt;%
+  group_by(cand_nm, primary_city) %&gt;% 
+  summarise(contb_receipt_amt = sum(contb_receipt_amt)) %&gt;%
+  arrange(desc(contb_receipt_amt)) %&gt;% head(10) %&gt;%
+  ggplot(aes(x = reorder(primary_city, contb_receipt_amt,FUN = max), y =contb_receipt_amt))+
+  geom_bar(stat = &quot;identity&quot;, width = 0.9, fill = &quot;#B22222&quot;) +
+  coord_flip()+
+  facet_wrap(.~cand_nm)+
+  theme_bw()+
+  theme(text = element_text(size = 18))+
+  scale_y_continuous(breaks = c(0, 200000, 400000, 500000), labels = c(&quot;$0&quot;, &quot;$200,000&quot;, &quot;$400,000&quot;, &quot;$500,000&quot;))+
+  labs(x = &quot;&quot;, y =&quot;&quot;)
+
+p2 &lt;- df1 %&gt;%filter(cand_nm ==&quot;Clinton, Hillary Rodham&quot;)%&gt;%
+ group_by(cand_nm, primary_city) %&gt;% 
+  summarise(contb_receipt_amt = sum(contb_receipt_amt)) %&gt;%
+  arrange(desc(contb_receipt_amt)) %&gt;% head(10) %&gt;%
+  ggplot(aes(x = reorder(primary_city, contb_receipt_amt,FUN = max), y =contb_receipt_amt))+
+  geom_bar(stat = &quot;identity&quot;, width = 0.9, fill = &quot;#0000FF&quot;) +
+  coord_flip()+
+  facet_wrap(.~cand_nm)+
+  theme_bw()+
+  theme(text = element_text(size = 18))+
+  
+  scale_y_continuous(breaks = c(0, 4000000, 8000000, 12000000), labels = c(&quot;$0&quot;, &quot;$4,000,000&quot;, &quot;$8,000,000&quot;, &quot;$12,000,000&quot;))+
+  labs(x = &quot;&quot;, y =&quot;&quot;)
+
+p2 + p1 + 
+  plot_annotation(title = &quot;what did candadites raise most money?&quot;,
+                  caption = &quot;Amount raised&quot;,
+                  theme = theme(plot.title = element_text(size = 24, hjust = 0.1),
+                                plot.caption = element_text(size = 24, hjust = 0.55)))</code></pre>
+<p><img src="/blogs/workexp_files/figure-html/load_CA_data-1.png" width="672" />
+Top 10 charts:</p>
+<pre class="r"><code>library(tidytext)
+zipcodes_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))</code></pre>
+<pre><code>## Rows: 42,522
+## Columns: 16
+## Delimiter: &quot;,&quot;
+## chr [11]: zip, type, primary_city, acceptable_cities, unacceptable_cities, state, county, ...
+## dbl [ 4]: latitude, longitude, decommissioned, estimated_population
+## 
+## Use `spec()` to retrieve the guessed column specification
+## Pass a specification to the `col_types` argument to quiet this message</code></pre>
+<pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))</code></pre>
+<pre><code>## Rows: 1,292,843
+## Columns: 4
+## Delimiter: &quot;,&quot;
+## chr  [1]: cand_nm
+## dbl  [2]: contb_receipt_amt, zip
+## date [1]: contb_date
+## 
+## Use `spec()` to retrieve the guessed column specification
+## Pass a specification to the `col_types` argument to quiet this message</code></pre>
+<pre class="r"><code>zipcodes &lt;- zipcodes_2016 %&gt;%
+    mutate(zip=as.double(zip))
+Merged_data &lt;- left_join( CA_contributors_2016, zipcodes, by=&quot;zip&quot;)
+
+Merged_data %&gt;%
+  group_by(primary_city) %&gt;%
+  summarise(totalAmount=sum(contb_receipt_amt)) %&gt;% 
+  arrange(desc(totalAmount)) %&gt;% 
+  head(10)</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##    primary_city  totalAmount
+##    &lt;chr&gt;               &lt;dbl&gt;
+##  1 Los Angeles     16608405.
+##  2 San Francisco   15716677.
+##  3 Oakland          3940076.
+##  4 San Diego        3932830.
+##  5 Palo Alto        3375370.
+##  6 Beverly Hills    3267148.
+##  7 Berkeley         3104403.
+##  8 Santa Monica     2926874.
+##  9 San Jose         2445544.
+## 10 Sacramento       2384442.</code></pre>
+<pre class="r"><code>Merged_data %&gt;%
+  group_by(cand_nm) %&gt;%
+  summarise(totalAmount=sum(contb_receipt_amt)) %&gt;% 
+  arrange(desc(totalAmount)) %&gt;% 
+  head(10)</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##    cand_nm                   totalAmount
+##    &lt;chr&gt;                           &lt;dbl&gt;
+##  1 Clinton, Hillary Rodham     94784569.
+##  2 Sanders, Bernard            20649084.
+##  3 Trump, Donald J.            14064776.
+##  4 Cruz, Rafael Edward &#39;Ted&#39;    6075175.
+##  5 Rubio, Marco                 5595281.
+##  6 Bush, Jeb                    3357550.
+##  7 Carson, Benjamin S.          3145278.
+##  8 Kasich, John R.              1571849.
+##  9 Fiorina, Carly               1501113.
+## 10 Paul, Rand                    823542.</code></pre>
+<pre class="r"><code>ten_candidate &lt;- Merged_data %&gt;% 
+                group_by(cand_nm) %&gt;% 
+                summarise(total_cont = sum(contb_receipt_amt)) %&gt;% 
+                arrange(desc(total_cont)) %&gt;% 
+                head(10)</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>Graph_data &lt;-Merged_data %&gt;%
+    filter(cand_nm %in% ten_candidate$cand_nm) %&gt;% 
+    group_by(primary_city, cand_nm) %&gt;% 
+    summarise(total_amount =sum(contb_receipt_amt)) %&gt;% 
+    group_by(cand_nm) %&gt;%
+    top_n(10) %&gt;% 
+    ungroup %&gt;% 
+    mutate(cand_nm = as.factor(cand_nm),
+    primary_city = reorder_within(primary_city, total_amount, cand_nm)) </code></pre>
+<pre><code>## `summarise()` regrouping output by &#39;primary_city&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## Selecting by total_amount</code></pre>
+<pre class="r"><code>    ggplot(Graph_data, aes(primary_city, total_amount)) +
+    geom_col(show.legend = FALSE) +
+    facet_wrap(~cand_nm, scales = &quot;free&quot;) +
+    coord_flip() +
+    scale_x_reordered() +
+    theme_bw()+
+    scale_y_continuous() +
+    theme (axis.title.x = element_blank(), 
+        axis.title.y = element_blank()) </code></pre>
+<p><img src="/blogs/workexp_files/figure-html/top%2010-1.png" width="672" /></p>
 
                         </div>
                     </section>
