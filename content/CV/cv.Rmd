@@ -11,4 +11,4 @@ slug: cv
 title: cv
 ---
 
-This is my CV.
+This is my CV
