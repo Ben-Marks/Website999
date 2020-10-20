@@ -7,7 +7,7 @@ description:
 draft: false
 keywords: ""
 slug: cv
-title: About me
+title: cv
 ---
 
 Hello my name is Ben
