@@ -8,7 +8,6 @@ draft: false
 image: pic10.jpg
 keywords: ""
 slug: cv
-title: Ipsum
+title: This is a copy of my CV.
 ---
-This is a copy of my CV.
 
