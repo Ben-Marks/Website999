@@ -11,6 +11,8 @@ slug: pq
 title: Professional Qualifactions
 ---
 
+##Below are my profession Qualifations##
+
 **CFA LEVEL 1**\
 
 ```{r, echo=FALSE, out.width="90%"}
