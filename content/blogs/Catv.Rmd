@@ -7,7 +7,7 @@ description:
 draft: false
 image:
 keywords: ""
-slug: work
+slug: cat
 title: Cat pictures
 ---
 
@@ -15,4 +15,16 @@ title: Cat pictures
 
 ```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/luna1.jpg", error = FALSE)
+```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna2.jpg", error = FALSE)
+```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna3.jpg", error = FALSE)
+```
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/luna1.gif", error = FALSE)
 ```
