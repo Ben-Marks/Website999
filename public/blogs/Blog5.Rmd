@@ -15,9 +15,9 @@ I have received the following grades from my studies:
 
 **GCES**
 
-*2A+
-*3A
-*5B
+* 2A+
+* 3A
+* 5B
 
 **A Level**
 
@@ -27,8 +27,8 @@ I have received the following grades from my studies:
 
 **Undergraduate**
 
-*Bsc Economics and Political Science, Upper Second class
+* Bsc Economics and Political Science, Upper Second class
 
 **Masters**
 
-*Masters in Financial Analysis, ongoing
+* Masters in Financial Analysis, ongoing
