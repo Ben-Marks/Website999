@@ -11,7 +11,6 @@ description:
 
 *I am trying to learn french as it is one of my life goals
 draft: false
-image:
 keywords: ""
 slug: Aboutme
 title: About me
