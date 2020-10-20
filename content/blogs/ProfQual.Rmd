@@ -8,16 +8,16 @@ draft: false
 image:
 keywords: ""
 slug: pq
-title: ProfessionalQualifactions
+title: Professional Qualifactions
 ---
 
 **CFA LEVEL 1**
-```{r add_my_new_picture, echo=FALSE, out.width="90%"}
+```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/cfa.jpg", error = FALSE)
 ```
 
 **Investment Management Certificate**
 
-```{r add_my_new_picture, echo=FALSE, out.width="90%"}
+```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/IMC.jpg", error = FALSE)
 ```
