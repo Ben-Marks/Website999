@@ -13,7 +13,7 @@ title: Professional Qualifactions
 
 **CFA LEVEL 1**
 ```{r, echo=FALSE, out.width="90%"}
-knitr::include_graphics("/img/cfa.jpg", error = FALSE)
+knitr::include_graphics("/img/CFA1.png", error = FALSE)
 ```
 
 **Investment Management Certificate**
