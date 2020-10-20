@@ -13,6 +13,6 @@ description:
 draft: false
 image:
 keywords: ""
-slug: About me
+slug: Aboutme
 title: About me
 ---
