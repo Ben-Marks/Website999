@@ -1,0 +1,23 @@
+---
+categories:
+- ""
+- ""
+date: "2017-10-31T22:26:13-05:00"
+description:
+draft: false
+image:
+keywords: ""
+slug: prof
+title: Professional Qualifactions
+---
+
+**CFA LEVEL 1**
+```{r add_my_new_picture, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/cfa.png", error = FALSE)
+```
+
+**Investment Managment Certificate**
+
+```{r add_my_new_picture, echo=FALSE, out.width="90%"}
+knitr::include_graphics("/img/IMC.png", error = FALSE)
+```

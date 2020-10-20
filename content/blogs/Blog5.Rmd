@@ -7,7 +7,7 @@ description:
 draft: false
 image:
 keywords: ""
-slug: ben
+slug: edu
 title: Education
 ---
 

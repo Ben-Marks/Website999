@@ -105,15 +105,15 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "Education"
-      subtitle = "Lorem Etiam Nullam"
+      subtitle = ""
       image = "pic03.jpg"
-      url = "blogs/ben"
+      url = "blogs/edu"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
+      title = "Professional Qualifactions"
+      subtitle = ""
       image = "pic04.jpg"
-      url = "blogs/ipsum"
+      url = "blogs/prof"
 
     [[params.tiles.showcase]]
       title = "Consequat"
