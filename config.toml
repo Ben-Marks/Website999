@@ -116,10 +116,10 @@ disqusShortname = ""
       url = "blogs/pq"
 
     [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
+      title = "An example of work at LBS"
+      subtitle = "Looking at campaign contributions in the 2016 US presidenatial election in CA"
       image = "pic05.jpg"
-      url = "blogs/ipsum"
+      url = "blogs/work"
 
     [[params.tiles.showcase]]
       title = "Etiam"
