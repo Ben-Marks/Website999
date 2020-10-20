@@ -11,4 +11,4 @@ slug: cv
 title: cv
 ---
 
-Hello my name is Ben
+This is my CV
