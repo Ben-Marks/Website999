@@ -113,7 +113,7 @@ disqusShortname = ""
       title = "Professional Qualifactions"
       subtitle = ""
       image = "pic04.jpg"
-      url = "blogs/prof"
+      url = "blogs/pq"
 
     [[params.tiles.showcase]]
       title = "Consequat"

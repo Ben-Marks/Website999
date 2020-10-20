@@ -7,7 +7,7 @@ description:
 draft: false
 image:
 keywords: ""
-slug: prof
+slug: pq
 title: Professional Qualifactions
 ---
 
@@ -16,7 +16,7 @@ title: Professional Qualifactions
 knitr::include_graphics("/img/cfa.png", error = FALSE)
 ```
 
-**Investment Managment Certificate**
+**Investment Management Certificate**
 
 ```{r add_my_new_picture, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/IMC.png", error = FALSE)
