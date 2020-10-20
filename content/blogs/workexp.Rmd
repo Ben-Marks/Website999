@@ -1,0 +1,113 @@
+---
+categories:
+- ""
+- ""
+date: "2017-10-31T22:26:13-05:00"
+description:
+draft: false
+image:
+keywords: ""
+slug: work
+title: Example of Work
+---
+```{r, load_CA_data, warnings= FALSE, message=FALSE}
+# Make sure you use vroom() as it is significantly faster than read.csv()
+library(patchwork)
+
+df1 <- read_csv(here::here("data","CA_contributors_2016.csv"))
+df2 <- read_csv(here::here("data","zip_code_database.csv"))
+
+df1 <- df1 %>% mutate(zip = as.character(zip)) %>% left_join(df2)
+
+
+p1 <- df1 %>%filter(cand_nm =="Trump, Donald J.")%>%
+  group_by(cand_nm, primary_city) %>% 
+  summarise(contb_receipt_amt = sum(contb_receipt_amt)) %>%
+  arrange(desc(contb_receipt_amt)) %>% head(10) %>%
+  ggplot(aes(x = reorder(primary_city, contb_receipt_amt,FUN = max), y =contb_receipt_amt))+
+  geom_bar(stat = "identity", width = 0.9, fill = "#B22222") +
+  coord_flip()+
+  facet_wrap(.~cand_nm)+
+  theme_bw()+
+  theme(text = element_text(size = 18))+
+  scale_y_continuous(breaks = c(0, 200000, 400000, 500000), labels = c("$0", "$200,000", "$400,000", "$500,000"))+
+  labs(x = "", y ="")
+
+p2 <- df1 %>%filter(cand_nm =="Clinton, Hillary Rodham")%>%
+ group_by(cand_nm, primary_city) %>% 
+  summarise(contb_receipt_amt = sum(contb_receipt_amt)) %>%
+  arrange(desc(contb_receipt_amt)) %>% head(10) %>%
+  ggplot(aes(x = reorder(primary_city, contb_receipt_amt,FUN = max), y =contb_receipt_amt))+
+  geom_bar(stat = "identity", width = 0.9, fill = "#0000FF") +
+  coord_flip()+
+  facet_wrap(.~cand_nm)+
+  theme_bw()+
+  theme(text = element_text(size = 18))+
+  
+  scale_y_continuous(breaks = c(0, 4000000, 8000000, 12000000), labels = c("$0", "$4,000,000", "$8,000,000", "$12,000,000"))+
+  labs(x = "", y ="")
+
+p2 + p1 + 
+  plot_annotation(title = "what did candadites raise most money?",
+                  caption = "Amount raised",
+                  theme = theme(plot.title = element_text(size = 24, hjust = 0.1),
+                                plot.caption = element_text(size = 24, hjust = 0.55)))
+```
+Top 10 charts:
+
+```{r top 10}
+
+library(tidytext)
+zipcodes_2016 <- vroom::vroom(here::here("data","zip_code_database.csv"))
+CA_contributors_2016 <- vroom::vroom(here::here("data","CA_contributors_2016.csv"))
+zipcodes <- zipcodes_2016 %>%
+    mutate(zip=as.double(zip))
+Merged_data <- left_join( CA_contributors_2016, zipcodes, by="zip")
+
+Merged_data %>%
+  group_by(primary_city) %>%
+  summarise(totalAmount=sum(contb_receipt_amt)) %>% 
+  arrange(desc(totalAmount)) %>% 
+  head(10)
+
+Merged_data %>%
+  group_by(cand_nm) %>%
+  summarise(totalAmount=sum(contb_receipt_amt)) %>% 
+  arrange(desc(totalAmount)) %>% 
+  head(10)
+
+ten_candidate <- Merged_data %>% 
+                group_by(cand_nm) %>% 
+                summarise(total_cont = sum(contb_receipt_amt)) %>% 
+                arrange(desc(total_cont)) %>% 
+                head(10)
+
+
+Graph_data <-Merged_data %>%
+    filter(cand_nm %in% ten_candidate$cand_nm) %>% 
+    group_by(primary_city, cand_nm) %>% 
+    summarise(total_amount =sum(contb_receipt_amt)) %>% 
+    group_by(cand_nm) %>%
+    top_n(10) %>% 
+    ungroup %>% 
+    mutate(cand_nm = as.factor(cand_nm),
+    primary_city = reorder_within(primary_city, total_amount, cand_nm)) 
+ 
+
+    
+    ggplot(Graph_data, aes(primary_city, total_amount)) +
+    geom_col(show.legend = FALSE) +
+    facet_wrap(~cand_nm, scales = "free") +
+    coord_flip() +
+    scale_x_reordered() +
+    theme_bw()+
+    scale_y_continuous() +
+    theme (axis.title.x = element_blank(), 
+        axis.title.y = element_blank()) 
+
+
+
+
+
+
+```
