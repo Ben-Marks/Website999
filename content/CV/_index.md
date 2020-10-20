@@ -6,3 +6,4 @@ slug: CV
 title: Lifestyle
 ---
 
+My blogs about technology and lifestyle.
