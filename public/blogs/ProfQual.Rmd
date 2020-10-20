@@ -11,7 +11,8 @@ slug: pq
 title: Professional Qualifactions
 ---
 
-**CFA LEVEL 1**
+**CFA LEVEL 1**\
+
 ```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("/img/CFA1.png", error = FALSE)
 ```
