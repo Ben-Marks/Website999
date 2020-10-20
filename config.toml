@@ -104,7 +104,7 @@ disqusShortname = ""
       url = "blogs/cv"
 
     [[params.tiles.showcase]]
-      title = "Magna"
+      title = "Education"
       subtitle = "Lorem Etiam Nullam"
       image = "pic03.jpg"
       url = "blogs/ben"
