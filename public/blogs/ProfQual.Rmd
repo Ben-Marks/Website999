@@ -8,10 +8,10 @@ draft: false
 image:
 keywords: ""
 slug: pq
-title: Professional Qualifactions
+title: Professional Qualifications
 ---
 
-##Below are my profession Qualifations##
+##Below are my profession Qualifications##
 
 **CFA LEVEL 1**\
 
