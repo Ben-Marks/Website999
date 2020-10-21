@@ -10,7 +10,9 @@ keywords: ""
 slug: work
 title: Example of Work
 ---
-##This is some work I did at London Business School. It looks at the graphs show political donations by candidate in Califorina##
+**This is some work I did at London Business School. It looks at the graphs show political donations by candidate in Califorina.**
+
+The code makes the graphs at the bottom of the page.
 
 ```{r, load_CA_data, warnings= FALSE, message=FALSE}
 # Make sure you use vroom() as it is significantly faster than read.csv()

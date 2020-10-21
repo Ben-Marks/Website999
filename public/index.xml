@@ -14,7 +14,7 @@
       
       <guid>/blogs/aboutme/</guid>
       <description>Hello my name is Ben, I am from Leeds in the UK. I have lived in UK all my life, I currently live in London as I am undertaking my Masters at London Business School.
-I enjoy reading, politics and going to the cinema. I am also trying to learn french as it is one of my life goals to learn a new language.</description>
+I enjoy reading, politics and going to the cinema. I am also trying to learn French as it is one of my life goals to learn a new language.</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@ I enjoy reading, politics and going to the cinema. I am also trying to learn fre
       <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
       
       <guid>/blogs/cat/</guid>
-      <description>Here are some prictures of my cat Luna!</description>
+      <description>Here are some pictures of my cat Luna!</description>
     </item>
     
     <item>
@@ -46,8 +46,9 @@ GCES
       <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
       
       <guid>/blogs/work/</guid>
-      <description>##This is some work I did at London Business School. It looks at the graphs show political donations by candidate in Califorina##
-# Make sure you use vroom() as it is significantly faster than read.csv()library(patchwork)library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packageslibrary(mosaic)library(ggthemes)library(lubridate)library(fivethirtyeight)library(here)library(skimr)library(janitor)library(vroom)library(tidyquant)library(rvest) # scrape websiteslibrary(purrr) library(lubridate) #to handle datesdf1 &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))df2 &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.</description>
+      <description>This is some work I did at London Business School. It looks at the graphs show political donations by candidate in Califorina.
+The code makes the graphs at the bottom of the page.
+# Make sure you use vroom() as it is significantly faster than read.csv()library(patchwork)library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packageslibrary(mosaic)library(ggthemes)library(lubridate)library(fivethirtyeight)library(here)library(skimr)library(janitor)library(vroom)library(tidyquant)library(rvest) # scrape websiteslibrary(purrr) library(lubridate) #to handle datesdf1 &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.</description>
     </item>
     
     <item>

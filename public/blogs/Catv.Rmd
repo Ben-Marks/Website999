@@ -11,7 +11,7 @@ slug: cat
 title: Cat pictures
 ---
 
-**Here are some prictures of my cat Luna!**
+**Here are some pictures of my cat Luna!**
 
 ```{r, echo=FALSE, out.width="50%"}
 knitr::include_graphics("/img/luna1.jpg", error = FALSE)
