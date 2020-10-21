@@ -117,7 +117,7 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "An example of work at LBS"
-      subtitle = "Looking at campaign contributions in the 2016 US Presidenatial election in CA"
+      subtitle = "Looking at campaign contributions in the 2016 US Presidential election in CA"
       image = "pic05.jpg"
       url = "blogs/work"
 
